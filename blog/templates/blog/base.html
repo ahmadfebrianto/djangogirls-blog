@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <title>Django Girls blog</title>
     <link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -14,7 +13,7 @@
 <header class="page-header">
     <div class="container">
         {% if user.is_superuser %}
-            <a href="{% url 'blog:new_post' %}" class="top-menu">
+            <a href="{% url 'blog:post_new' %}" class="top-menu">
                 {% include 'blog/icons/file-earmark-plus.svg' %}
             </a>
         {% endif %}
