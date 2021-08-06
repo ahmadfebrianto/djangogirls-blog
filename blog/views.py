@@ -12,7 +12,7 @@ def index(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post.html', {'post': post})
+    return render(request, 'blog/post.html', {'post': post, 'user': request.user})
 
 
 def post_new(request):

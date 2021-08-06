@@ -7,12 +7,14 @@
         <p>{{ post.text | linebreaksbr }}</p>
         <p>By: <a href="">{{ post.author }}</a></p>
     </article>
-    <aside class="actions">
-        <a class="btn btn-outline-danger" href="{% url 'blog:post_delete' pk=post.pk %}">
-            {% include 'blog/icons/trash.svg' %}
-        </a>
-        <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}">
-            {% include 'blog/icons/pencil-fill.svg' %}
-        </a>
-    </aside>
+    {% if user.is_superuser %}
+        <aside class="actions">
+            <a class="btn btn-outline-danger" href="{% url 'blog:post_delete' pk=post.pk %}">
+                {% include 'blog/icons/trash.svg' %}
+            </a>
+            <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}">
+                {% include 'blog/icons/pencil-fill.svg' %}
+            </a>
+        </aside>
+    {% endif %}
 {% endblock %}
